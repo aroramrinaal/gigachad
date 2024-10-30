@@ -3,6 +3,30 @@ let stats = {
     imagesProcessed: 0
 };
 
+// Add this at the top with your other variables
+const chadJokes = [
+    "Time to get gigachaded 💪",
+    "Average face fan vs Gigachad enjoyer 🗿",
+    "Making the internet more sigma 😎", 
+    "Virgin regular browsing vs Chad filter enabled 💪",
+    "Turning normies into legends 🔱",
+    "Peak performance activated 💯",
+    "Ascending to chadhood 👑",
+    "Embrace the sigma grindset 💰",
+    "Reject weakness, become gigachad 💪",
+    "That's how mafia works 😤",
+    "Sigma rule #1: Enable gigachad mode 😎",
+    "Average fan vs Average enjoyer 🗿",
+    "Mirin' the gains brah? 💪",
+    "We're all gonna make it 🔱",
+    "Become ungovernable 👑",
+    "Sigma grindset activated 💯",
+    "Asserting dominance one page at a time 💪",
+    "Can you hear the sigma theme? 🎵",
+    "Gigachad energy intensifies 😤",
+    "Living the sigma lifestyle 😎"
+];
+
 // Initialize the popup
 document.addEventListener('DOMContentLoaded', async () => {
     // Get the current tab
@@ -32,6 +56,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             enabled: enabled
         });
     });
+
+    // Add this to your DOMContentLoaded event listener
+    document.querySelector('.chad-joke').textContent = chadJokes[Math.floor(Math.random() * chadJokes.length)];
 });
 
 // Update stats display
