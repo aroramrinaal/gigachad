@@ -12,7 +12,8 @@
     "web_accessible_resources": [{
       "resources": [
         "lib/face-api.min.js",
-        "models/*"
+        "models/*",
+        "assets/gigachad.png"
       ],
       "matches": ["<all_urls>"]
     }],

@@ -61,7 +61,7 @@ async function processImages() {
                 const faces = await detectFaces(img);
                 if (faces.length > 0) {
                     console.log('Found faces in image:', faces);
-                    // TODO: Apply gigachad filter here
+                    await applyGigachadFilter(img, faces);
                 }
             } catch (error) {
                 console.log('Could not process image:', img.src);
@@ -97,6 +97,41 @@ async function init() {
             subtree: true
         });
     }
+}
+
+// Load gigachad image once
+const gigachadImage = new Image();
+gigachadImage.src = chrome.runtime.getURL('assets/gigachad.png'); // You'll need to add this image
+
+// Function to apply gigachad filter
+async function applyGigachadFilter(image, detections) {
+    // Create an overlay canvas
+    const overlay = document.createElement('canvas');
+    const ctx = overlay.getContext('2d', { willReadFrequently: true });
+    overlay.width = image.width;
+    overlay.height = image.height;
+    
+    // Position the overlay
+    overlay.style.position = 'absolute';
+    overlay.style.left = image.offsetLeft + 'px';
+    overlay.style.top = image.offsetTop + 'px';
+    overlay.style.pointerEvents = 'none';
+    
+    // For each detected face
+    for (let detection of detections) {
+        const box = detection.detection.box;
+        ctx.drawImage(
+            gigachadImage,
+            box.x,
+            box.y,
+            box.width,
+            box.height
+        );
+    }
+    
+    // Add overlay to DOM
+    image.parentElement.style.position = 'relative';
+    image.parentElement.appendChild(overlay);
 }
 
 // Start the extension
