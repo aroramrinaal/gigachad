@@ -26,13 +26,12 @@ async function createCORSImage(originalImage) {
 // Function to detect faces in an image
 async function detectFaces(image) {
     try {
-        // Create a temporary canvas
+        // Create a temporary canvas with willReadFrequently set to true
         const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { willReadFrequently: true });
         canvas.width = image.width;
         canvas.height = image.height;
 
-        // Try to create a CORS-enabled version of the image
         try {
             const corsImage = await createCORSImage(image);
             ctx.drawImage(corsImage, 0, 0);
