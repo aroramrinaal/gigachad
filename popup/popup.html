@@ -1,37 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Gigachad Extension</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="../assets/icon48.png" alt="Gigachad Icon" class="logo">
+            <div class="logo-wrapper">
+                <img src="../assets/icon48.png" alt="Gigachad Icon" class="logo">
+                <div class="logo-glow"></div>
+            </div>
             <h1>Gigachad Mode</h1>
         </div>
         
-        <div class="toggle-container">
+        <div class="card toggle-container">
             <label class="switch">
                 <input type="checkbox" id="chadToggle" checked>
-                <span class="slider"></span>
+                <span class="slider">
+                    <span class="slider-icon"></span>
+                </span>
             </label>
             <span class="toggle-label">Enable Gigachad Filter</span>
         </div>
 
         <div class="stats">
-            <div class="stat-item">
-                <span class="stat-label">Faces Detected</span>
-                <span class="stat-value" id="facesDetected">0</span>
+            <div class="stat-item card">
+                <div class="stat-icon faces-icon"></div>
+                <div class="stat-content">
+                    <span class="stat-label">Faces Detected</span>
+                    <span class="stat-value" id="facesDetected">0</span>
+                </div>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">Images Processed</span>
-                <span class="stat-value" id="imagesProcessed">0</span>
+            <div class="stat-item card">
+                <div class="stat-icon images-icon"></div>
+                <div class="stat-content">
+                    <span class="stat-label">Images Processed</span>
+                    <span class="stat-value" id="imagesProcessed">0</span>
+                </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>Made by <a href="https://aroramrinaal.com" target="_blank">Mrinaal Arora</a></p>
+            <p>Created with 💪 by <a href="https://aroramrinaal.com" target="_blank" rel="noopener noreferrer">Mrinaal Arora</a></p>
         </div>
     </div>
     <script src="popup.js"></script>
